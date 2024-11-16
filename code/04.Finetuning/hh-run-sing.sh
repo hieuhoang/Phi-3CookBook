@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs af-en 
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs ar-en
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs az-en
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs bg-en
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs ca-en
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs zh-en
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs cs-en
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs da-en
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs nl-en
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs et-en
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs fi-en
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs fr-en
+
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs gl-en
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs ka-en
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs de-en
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs el-en
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs gu-en
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs he-en
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs hi-en
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs hu-en
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs is-en
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs id-en
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs it-en
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs ja-en
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs kk-en
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs ko-en
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs ky-en
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs lv-en
+# singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs lt-en
+
+singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs mk-en
+singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs mg-en
+singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs ms-en
+singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs mr-en
+singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs ne-en
+singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs no-en
+singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs fa-en
+singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs pl-en
+singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs pt-en
+singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs ro-en
+singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs ru-en
+singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs sr-en
+singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs es-en
+singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs sv-en
+singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs th-en
+singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs tr-en
+singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs uk-en
+singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs ur-en
+singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs uz-en
+singsub  --vc lang-sing-wu3 --gpu G2 --venv /opt/envs/hihoan/phi/bin/activate HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface python hh-train-parallel.py --language_pairs vi-en
