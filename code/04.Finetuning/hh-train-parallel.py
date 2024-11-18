@@ -293,10 +293,8 @@ def main():
     argParse.add_argument("--model_id", required=True)
     argParse.add_argument("--language_pairs", required=True)
     argParse.add_argument("--nllb_interleave_probs", default=None)
-    argParse.add_argument("--nllb_interleave_probs", default=None)
-    argParse.add_argument("--max_steps", type=int, default=999999)
-
-
+    argParse.add_argument("--max_steps", type=int, default=9999999)
+    argParse.add_argument("--save_steps", type=int, default=10000)
 
     args = argParse.parse_args()
 
@@ -382,8 +380,8 @@ def main():
     tokenizer.padding_side = 'left'
 
     # NNLB
-    train_raw_data = {}
-    nllb_raw_data = []
+    train_data = []
+    valid_data = []
 
     if args.nllb_interleave_probs:
         interleave_probs = [float(p) for p in args.nllb_interleave_probs.split(",")]
@@ -424,13 +422,15 @@ def main():
         chatTrain = chatTrain.shuffle(seed=seed)
         #print("lg_dataset1", lg_dataset, type(lg_dataset)) #, lg_dataset['translation'])
 
+        train_data.append(chatTrain)
+        valid_data.append(chatDict["validation"])
 
-        nllb_raw_data.append(chatTrain)
+    valid_data = concatenate_datasets(valid_data)
+    print("valid_data", valid_data, type(valid_data))
 
     set_seed(seed)
-    train_raw_data["nllb_pretrain"] = interleave_datasets(nllb_raw_data, probabilities=interleave_probs, seed=seed, stopping_strategy="first_exhausted")
-    #train_raw_data["nllb_pretrain"] = nllb_raw_data[0]
-    print("train_raw_data", train_raw_data["nllb_pretrain"], type(train_raw_data["nllb_pretrain"]))
+    train_data = interleave_datasets(train_data, probabilities=interleave_probs, seed=seed, stopping_strategy="first_exhausted")
+    #print("train_data", train_data, type(train_data))
     #exit(0)
 
     # This code block is used to set the compute data type and attention implementation based on whether bfloat16 is supported on the current CUDA device.
@@ -506,7 +506,7 @@ def main():
             learning_rate=1e-4,
             fp16 = not torch.cuda.is_bf16_supported(),
             bf16 = torch.cuda.is_bf16_supported(),
-            eval_steps=100,
+            eval_steps=args.save_steps,
             num_train_epochs=3,
             warmup_ratio=0.1,
             lr_scheduler_type="linear",
@@ -537,8 +537,8 @@ def main():
 
     trainer = SFTTrainer(
             model=model,
-            train_dataset=train_raw_data["nllb_pretrain"],
-            eval_dataset=chatDict["validation"],
+            train_dataset=train_data,
+            eval_dataset=valid_data,
             peft_config=peft_config,
             dataset_text_field="text",
             max_seq_length=512,
