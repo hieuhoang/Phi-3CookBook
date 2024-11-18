@@ -289,9 +289,14 @@ def LanguagePairs2NLLBList(str):
 
 def main():
     argParse = argparse.ArgumentParser(description="blah")
-    argParse.add_argument("--language_pairs", required=True)
     argParse.add_argument("--output_dir", required=True)
     argParse.add_argument("--model_id", required=True)
+    argParse.add_argument("--language_pairs", required=True)
+    argParse.add_argument("--nllb_interleave_probs", default=None)
+    argParse.add_argument("--nllb_interleave_probs", default=None)
+    argParse.add_argument("--max_steps", type=int, default=999999)
+
+
 
     args = argParse.parse_args()
 
@@ -329,7 +334,7 @@ def main():
 
     # 'device_map' is a dictionary that maps the model to the GPU device. 
     # In this case, the entire model is loaded on GPU 0.
-    device_map = None #{"": 0}
+    device_map = "auto" #{"": 0}
 
     # The following are parameters for the LoRA (Learning from Random Architecture) model.
 
@@ -379,8 +384,11 @@ def main():
     # NNLB
     train_raw_data = {}
     nllb_raw_data = []
-    #interleave_probs = [0.1313, 0.2043, 0.2748, 0.0897, 0.0927, 0.1675, 0.0397]
-    interleave_probs = [1.0]
+
+    if args.nllb_interleave_probs:
+        interleave_probs = [float(p) for p in args.nllb_interleave_probs.split(",")]
+    else:
+        interleave_probs = [1/len(languagePairs)] * len(languagePairs)
 
     nllb_pretrain_data_path = "allenai/nllb"
     load_kwargs = {'cache_dir': None, 'use_auth_token': None, 'streaming': False, 'trust_remote_code': True}
@@ -489,12 +497,12 @@ def main():
             evaluation_strategy="steps",
             do_eval=True,
             optim="adamw_torch",
-            per_device_train_batch_size=2,
-            gradient_accumulation_steps=16,
-            per_device_eval_batch_size=4,
+            per_device_train_batch_size=32,
+            gradient_accumulation_steps=1,
+            per_device_eval_batch_size=16,
             log_level="debug",
-            save_strategy="epoch",
-            logging_steps=100,
+            save_strategy="steps",
+            logging_steps=500,
             learning_rate=1e-4,
             fp16 = not torch.cuda.is_bf16_supported(),
             bf16 = torch.cuda.is_bf16_supported(),
@@ -504,7 +512,8 @@ def main():
             lr_scheduler_type="linear",
             report_to="none",
             seed=seed,
-            max_steps=10000,
+            max_steps=args.max_steps,
+            save_steps=args.save_steps,
     )
 
     peft_config = LoraConfig(
@@ -598,12 +607,12 @@ def main():
     # 'trust_remote_code' is set to True, which means that the model will trust and execute remote code.
     # 'safe_serialization' is set to True, which means that the model will use safe serialization.
 
-    merged_model.save_pretrained("merged_model", trust_remote_code=True, safe_serialization=True)
+    merged_model.save_pretrained(f"{args.output_dir}/merged_model", trust_remote_code=True, safe_serialization=True)
 
     # 'tokenizer.save_pretrained' is a method that saves the tokenizer.
     # The tokenizer is saved in the directory "merged_model".
 
-    tokenizer.save_pretrained("merged_model")
+    tokenizer.save_pretrained(f"{args.output_dir}/merged_model")
 
 if __name__ == '__main__':
     sys.exit(main())

@@ -107,8 +107,8 @@ def format_dataset_chatml(row):
 # microsoft/Phi-3-medium-128k-instruct-onnx-directml
 # microsoft/Phi-3-mini-4k-instruct-gguf
 
-model_id   = "microsoft/Phi-3-mini-4k-instruct"
-model_name = "microsoft/Phi-3-mini-4k-instruct"
+model_id   = "microsoft/Phi-3-medium-4k-instruct"
+model_name = model_id
 
 # 'dataset_name' is the identifier for the dataset that you want to use for fine-tuning. 
 # In this case, it's the 'python_code_instructions_18k_alpaca' dataset from iamtarun (Ex: iamtarun/python_code_instructions_18k_alpaca).
@@ -127,7 +127,7 @@ hf_model_repo="UserName/"+new_model
 
 # 'device_map' is a dictionary that maps the model to the GPU device. 
 # In this case, the entire model is loaded on GPU 0.
-device_map = {"": 0}
+device_map = "auto" # {"": 0}
 
 # The following are parameters for the LoRA (Learning from Random Architecture) model.
 
@@ -217,7 +217,7 @@ print(attn_implementation)
 # This code block is used to load a pre-trained model and its associated tokenizer from the Hugging Face Model Hub.
 
 # 'model_name' is set to the identifier of the pre-trained model.
-model_name = "microsoft/Phi-3-mini-4k-instruct"
+#model_name = "microsoft/Phi-3-mini-4k-instruct"
 
 # 'AutoTokenizer.from_pretrained' is a method that loads a tokenizer from the Hugging Face Model Hub.
 # 'model_id' is passed as an argument to specify which tokenizer to load.
