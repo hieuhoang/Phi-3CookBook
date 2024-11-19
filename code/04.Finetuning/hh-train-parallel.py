@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import os, sys
-#os.environ['HF_HOME'] = '/mnt/eastus/hieu/workspace/cache/huggingface'
+os.environ['HF_HOME'] = '/mnt/eastus/hieu/workspace/cache/huggingface'
 #export HF_HOME=/mnt/eastus/hieu/workspace/cache/huggingface
 
 # 'randrange' is a function from the 'random' module that generates a random number within the specified range.
@@ -392,6 +392,7 @@ def main():
     load_kwargs = {'cache_dir': None, 'use_auth_token': None, 'streaming': False, 'trust_remote_code': True}
 
     for language_key in languagePairs:
+        print("language_key", language_key)
         set_seed(seed)
         if language_key == 'eng_Latn-tha_Thai':
             dataDictOrig = load_dataset(
